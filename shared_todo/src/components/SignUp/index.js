@@ -51,6 +51,7 @@ class SignUp extends React.Component {
               type="text"
               value={this.state.userName}
               onChange={this.handleInputChange}
+              required
             />
           </label>
           <label htmlFor="email">
@@ -60,6 +61,7 @@ class SignUp extends React.Component {
               type="text"
               value={this.state.email}
               onChange={this.handleInputChange}
+              required
             />
           </label>
           <label htmlFor="fName">
@@ -69,6 +71,7 @@ class SignUp extends React.Component {
               type="text"
               value={this.state.fName}
               onChange={this.handleInputChange}
+              required
             />
           </label>
           <label htmlFor="lName">
@@ -78,6 +81,7 @@ class SignUp extends React.Component {
               type="text"
               value={this.state.lName}
               onChange={this.handleInputChange}
+              required
             />
           </label>
           <label htmlFor="password">
@@ -87,6 +91,7 @@ class SignUp extends React.Component {
               type="password"
               value={this.state.password}
               onChange={this.handleInputChange}
+              required
             />
           </label>
           <button onClick={this.handleSubmit}>Submit</button>
