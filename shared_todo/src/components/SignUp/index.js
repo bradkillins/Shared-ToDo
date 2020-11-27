@@ -34,7 +34,7 @@ class SignUp extends React.Component {
       fName: this.state.fName,
       lName: this.state.lName
     };
-    this.props.OnNewUser(newUser);
+    this.props.OnNewUser(newUser); //this is where the state of the parent is changed
     this.setState({ msg: "New User registered! Please try logging in!" });
   }
 

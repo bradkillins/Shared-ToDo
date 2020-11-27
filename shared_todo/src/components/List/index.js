@@ -48,24 +48,24 @@ class List extends React.Component {
     super();
     this.state = { todos };
   }
-  NewTask(){
-    return(
+  NewTask() {
+    //only the render() method should contain JSX, this should accept data and store it into state
+    return (
       <div className="createTodo">
-                  <label htmlFor="Title">
-                      Title:
-                  <input name="Title" type="text"></input>
-                  </label>
-                  <label htmlFor="AuthorizedUsersRead">
-                      Any authorized users to read?
-                      <input name="AuthorizedUsersRead" type="text"></input>
-                  </label>
-                  <label htmlFor="AuthorizedUsersWrite">
-                      Any authorized users to write?
-                      <input name="AuthorizedUsersWrite" type="text"></input>
-                  </label>
-    
-                </div>
-    )
+        <label htmlFor="Title">
+          Title:
+          <input name="Title" type="text"></input>
+        </label>
+        <label htmlFor="AuthorizedUsersRead">
+          Any authorized users to read?
+          <input name="AuthorizedUsersRead" type="text"></input>
+        </label>
+        <label htmlFor="AuthorizedUsersWrite">
+          Any authorized users to write?
+          <input name="AuthorizedUsersWrite" type="text"></input>
+        </label>
+      </div>
+    );
   }
 
   render() {
@@ -80,7 +80,8 @@ class List extends React.Component {
             parentId={todo.id}
           />
         ))}
-        <button onClick={this.NewTask}>Add A New Task!</button>
+        {/* Shouldn't this be "Add A ToDo"? */}
+        <button onClick={this.NewTask}>Add Todo</button>
       </section>
     );
   }

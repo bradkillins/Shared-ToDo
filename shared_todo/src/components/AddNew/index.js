@@ -1,53 +1,44 @@
 import React from "react";
 import "./index.css";
-import Task from "../Task"
-import Todo from "../Todo"
+import Task from "../Task";
+import Todo from "../Todo";
 
+class AddNew extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   showing: false
+    // };
+  }
 
-
-
-class AddNew extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-          showing : false
-        }
-    }
-
-
-        render() {
-          if(this.state.showing == false){
-            return (
-              <button onClick={() => this.setState({showing : true})}>Add A New Task!</button>
-            );
-          }
-          else{
-            return (
-              <div className="createTodo">
-                <label htmlFor="Title">
-                    Title:
-                <input name="Title" type="text"></input>
-                </label>
-                <label htmlFor="AuthorizedUsersRead">
-                    Any authorized users to read?
-                    <input name="AuthorizedUsersRead" type="text"></input>
-                </label>
-                <label htmlFor="AuthorizedUsersWrite">
-                    Any authorized users to write?
-                    <input name="AuthorizedUsersWrite" type="text"></input>
-                </label>
-  
-              </div>
-            );
-          }
-        }
-        
-    
-    }
+  render() {
+    // if(this.state.showing == false){
+    //   return (
+    //     <button onClick={() => this.setState({showing : true})}>Add A New Task!</button>
+    //   );
+    // }
+    // else{
+    return (
+      <div className="createTodo">
+        <label htmlFor="Title">
+          Title:
+          <input name="Title" type="text"></input>
+        </label>
+        <label htmlFor="AuthorizedUsersRead">
+          Any authorized users to read?
+          <input name="AuthorizedUsersRead" type="text"></input>
+        </label>
+        <label htmlFor="AuthorizedUsersWrite">
+          Any authorized users to write?
+          <input name="AuthorizedUsersWrite" type="text"></input>
+        </label>
+      </div>
+    );
+    //}
+  }
+}
 
 export default AddNew;
-
-
 
 /*{ <form className="form">
           <label htmlFor="userName">
