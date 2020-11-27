@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 
+import AddNew from "../AddNew";
 import Todo from "../Todo";
 
 const todos = [
@@ -47,6 +48,26 @@ class List extends React.Component {
     super();
     this.state = { todos };
   }
+  NewTask(){
+    return(
+      <div className="createTodo">
+                  <label htmlFor="Title">
+                      Title:
+                  <input name="Title" type="text"></input>
+                  </label>
+                  <label htmlFor="AuthorizedUsersRead">
+                      Any authorized users to read?
+                      <input name="AuthorizedUsersRead" type="text"></input>
+                  </label>
+                  <label htmlFor="AuthorizedUsersWrite">
+                      Any authorized users to write?
+                      <input name="AuthorizedUsersWrite" type="text"></input>
+                  </label>
+    
+                </div>
+    )
+  }
+
   render() {
     return (
       <section className="list">
@@ -59,6 +80,7 @@ class List extends React.Component {
             parentId={todo.id}
           />
         ))}
+        <button onClick={this.NewTask}>Add A New Task!</button>
       </section>
     );
   }
