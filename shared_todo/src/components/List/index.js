@@ -4,6 +4,8 @@ import "./index.css";
 import AddNew from "../AddNew";
 import Todo from "../Todo";
 
+
+
 const todos = [
   {
     id: "001",
@@ -46,29 +48,27 @@ const todos = [
 class List extends React.Component {
   constructor() {
     super();
-    this.state = { todos };
+    this.state = { todos , showForm : false, buttontitle : "Add ToDo"};
+    this.HideComponent = this.HideComponent.bind(this);
+    this.AddToList = this.AddToList.bind(this);
   }
-  NewTask() {
-    //only the render() method should contain JSX, this should accept data and store it into state
-    return (
-      <div className="createTodo">
-        <label htmlFor="Title">
-          Title:
-          <input name="Title" type="text"></input>
-        </label>
-        <label htmlFor="AuthorizedUsersRead">
-          Any authorized users to read?
-          <input name="AuthorizedUsersRead" type="text"></input>
-        </label>
-        <label htmlFor="AuthorizedUsersWrite">
-          Any authorized users to write?
-          <input name="AuthorizedUsersWrite" type="text"></input>
-        </label>
-      </div>
-    );
+  HideComponent(){
+    if(this.state.showForm){
+      this.setState({showForm : false, buttontitle : "Add ToDo"});
+    }
+    else{
+      this.setState({showForm : true, buttontitle : "Cancel"});
+    }
   }
+  AddToList(newToDo){
+    this.setState({
+      todos : this.state.todos.concat(newToDo)});
+      return todos;
+  };
+
 
   render() {
+
     return (
       <section className="list">
         <h2>List of To-Dos:</h2>
@@ -80,9 +80,14 @@ class List extends React.Component {
             parentId={todo.id}
           />
         ))}
-        {/* Shouldn't this be "Add A ToDo"? */}
-        <button onClick={this.NewTask}>Add Todo</button>
+        <button onClick={this.HideComponent}>{this.state.buttontitle}</button>
+        <div>
+          {this.state.showForm && <AddNew newToDo = {this.AddToList}/>}
+        </div>
+        
+        
       </section>
+      
     );
   }
 }
