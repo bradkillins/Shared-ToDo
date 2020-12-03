@@ -1,6 +1,6 @@
 import React from "react";
 import Task from "../Task";
-import AddNew from "../AddNew";
+import AddNewTask from "../AddNewTask";
 import "./index.css";
 
 //import Todo from "../Todo";
@@ -27,7 +27,7 @@ class Todo extends React.Component {
 
   render() {
     let newTask = null;
-    if (this.state.showNewTask) newTask = <AddNew />;
+    if (this.state.showNewTask) newTask = <AddNewTask />;
     return (
       <div className="todo">
         <h3>{this.props.title}</h3>
