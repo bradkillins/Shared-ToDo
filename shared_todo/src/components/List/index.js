@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-import AddNew from "../AddNew";
+import AddNewTodo from "../AddNewTodo";
 import Todo from "../Todo";
 
 const todos = [
@@ -127,7 +127,9 @@ class List extends React.Component {
           />
         ))}
         <button onClick={this.HideComponent}>{this.state.buttonTitle}</button>
-        <div>{this.state.showForm && <AddNew newToDo={this.AddToList} />}</div>
+        <div>
+          {this.state.showForm && <AddNewTodo newToDo={this.AddToList} />}
+        </div>
       </section>
     );
   }
