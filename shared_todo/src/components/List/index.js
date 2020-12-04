@@ -65,7 +65,9 @@ class List extends React.Component {
       todos : this.state.todos.concat(newToDo)});
       return todos;
   };
-
+  AddToTasks(newTask){
+    
+  }
 
   render() {
 

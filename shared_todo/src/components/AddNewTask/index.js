@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
-import Task from "../Task";
-import Todo from "../Todo";
-import List from "../List";
+import DatePicker from "../DatePicker";
+import Example from "../DatePicker";
 
-class AddNew extends React.Component {
+
+class AddNewTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,12 +13,14 @@ class AddNew extends React.Component {
         due: "",
         complete: false
 }
-
+this.DateChanged = this.DateChanged.bind(this);
 this.PassBackFunction = this.PassBackFunction.bind(this);
 this.InputChanged = this.InputChanged.bind(this);
 }
 PassBackFunction(){
-  this.props.newTask(this.state);
+  console.log(DatePicker.selected);
+  this.setState({due : DatePicker.value})
+  //this.props.newTask(this.state);
   console.log(this.state);
 }
 
@@ -29,26 +31,27 @@ InputChanged(e){
 
     this.setState({ [name]: value });
 }
-
+DateChanged(e){
+  let valueOfInput = e.selected;
+  console.log(valueOfInput);
+  //this.setState({due : valueOfInput});
+}
   render() {
+
     return (
-      <div className="createTodo">
-        <label htmlFor="Title">
-         Title:
-          <input name="title" 
+      <div className="createTask">
+        <label htmlFor="Description">
+         Description:
+          <input name="description" 
           type="text"
           onChange={this.InputChanged}></input>
         </label>
         <p></p>
-        <label htmlFor="AuthorizedUsersRead">
-          Any authorized users to read?
-          <input name="AuthorizedUsersRead" type="text"></input>
+        <label htmlFor="due">
+          Due:
+          <DatePicker onChange={this.DateChanged}/>
         </label>
         <p></p>
-        <label htmlFor="AuthorizedUsersWrite">
-          Any authorized users to write?
-          <input name="AuthorizedUsersWrite" type="text"></input>
-        </label>
         <p></p>
         <button type="submit" onClick = {()=> this.PassBackFunction()}>Submit</button>
       </div>
@@ -56,4 +59,4 @@ InputChanged(e){
   }
 }
 
-export default AddNew;
+export default AddNewTask;
