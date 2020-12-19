@@ -15,7 +15,15 @@ The Backend **MUST** use port **5000**, which is it's default port.
 Currently the CORS policy on the backend is set so that request from localhost:5080  
 will be allowed.  
 If the frontend starts on a different port than **5080** you need  
-to change the config file of the backend server.
+to change the config file of the backend server.  
+
+Logins to test:  
+
+username: brad@app.com  
+password: 123456789
+
+username: andrew@app.com  
+password: 123456789
 
 ### Code
 
