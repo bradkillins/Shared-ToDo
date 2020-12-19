@@ -14,8 +14,7 @@ After cloning please run "npm install" to get required packages.
 Start both the backend and frontend servers.  
 (node app.js in backend directory and npm start for frontend directory)  
 The Backend **MUST** use port **5000**, which is it's default port.  
-Currently the CORS policy on the backend is set so that request from localhost:3000  
-will be allowed.  
+Currently the CORS policy on the backend is set so that request from localhost:3000 will be allowed.  
 If the frontend starts on a different port than **3000** you need  
 to change the config file of the backend server.  
 
