@@ -1,0 +1,16 @@
+/*App*/
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+button {
+  padding: 2px;
+}
+
+input {
+  margin: 5px 0;
+}
