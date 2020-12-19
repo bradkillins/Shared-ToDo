@@ -9,7 +9,7 @@ module.exports.port = 5000;
 
 //Enter the domain to allow through the CORS policy
 //This must match the domain of the frontend server.
-module.exports.origin = "http://localhost:5080";
+module.exports.origin = "http://localhost:3000";
 
 //mongoDB username: backend-client; password: mgD6Y0Eo0iPUmK85
 module.exports.dbConfig = {
