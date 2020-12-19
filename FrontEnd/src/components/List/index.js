@@ -1,9 +1,7 @@
 import React from "react";
 import "./index.css";
-
 import AddNewTodo from "../AddNewTodo";
 import Todo from "../Todo";
-
 import { getFetch, postFetch, deleteFetch, putFetch } from "../../fetch";
 
 class List extends React.Component {
@@ -46,6 +44,7 @@ class List extends React.Component {
     }
   }
 
+  //gets a user's list of todos from the database and updates the state
   RetrieveTodos() {
     getFetch(
       `http://localhost:5000/api/list/${this.state.currentUser.email}`
@@ -55,13 +54,15 @@ class List extends React.Component {
           this.setState({
             fetching: false,
             showAddTaskButton: true,
-            msg: "You don't have any Todos! Try adding one :)"
+            msg: "You don't have any Todos! Try adding one :)",
+            todos: res.todos
           });
         else
           this.setState({
             fetching: false,
             showAddTaskButton: true,
-            todos: res.todos
+            todos: res.todos,
+            msg: ""
           });
       } else {
         this.setState({ fetching: false, msg: res.msg });
@@ -100,6 +101,7 @@ class List extends React.Component {
     }
   }
 
+  //adds a todo to the user's list, also updates the database
   AddToList(newTodo) {
     newTodo.owner = this.props.currentUser.email;
     newTodo.tasks = [];
@@ -110,7 +112,8 @@ class List extends React.Component {
       if (res.success) {
         this.setState({
           todos: this.state.todos.concat(res.todo),
-          fetching: false
+          fetching: false,
+          msg: ""
         });
       } else {
         this.setState({ fetching: false, msg: res.msg });
@@ -119,6 +122,7 @@ class List extends React.Component {
     this.ToggleNewTodoForm();
   }
 
+  //adds a new task to its todo, and updates the database
   AddToTasks(newTaskDetails) {
     const newMonth =
       newTaskDetails.due.getMonth() + 1 < 10
@@ -154,6 +158,7 @@ class List extends React.Component {
     });
   }
 
+  //updates a task's complete status when it's checkbox is changes
   OnTaskCompleteChange(todoId, taskId, complete) {
     const todos = this.state.todos;
     const todoIndex = todos.findIndex((todo) => todo.id === todoId);
