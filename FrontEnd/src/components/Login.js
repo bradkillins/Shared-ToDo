@@ -1,7 +1,16 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import "./index.css";
-import { postFetch } from "../../fetch";
+import { postFetch } from "../fetch";
+//import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+
+// const useStyles = makeStyles({
+//   root: {
+//     margin: "1em",
+//     backgroundColor: "rgba(100,100,100,0.8)"
+//   }
+// });
 
 class Login extends React.Component {
   constructor(props) {
@@ -19,10 +28,8 @@ class Login extends React.Component {
   }
 
   handleInputChange(e) {
-    const target = e.target;
-    const name = target.name;
-    const value = target.value;
-
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({ [name]: value });
   }
 
@@ -62,32 +69,39 @@ class Login extends React.Component {
     return (
       <div className="login">
         <h1>Welcome!</h1>
-        <h3>Please Login :)</h3>
+        <h3>Please Login</h3>
         <form className="loginForm">
-          <label htmlFor="inputLogin">User Name:</label>
-          <br />
-          <input
+          <TextField
+            // className={classes.root}
             name="inputLogin"
             type="text"
+            label="Email"
+            variant="outlined"
             value={this.state.inputLogin}
             onChange={this.handleInputChange}
-            placeholder="enter email"
           />
           <br />
-          <label htmlFor="inputPassword">Password:</label>
-          <br />
-          <input
+          <TextField
             name="inputPassword"
+            label="Password"
+            variant="outlined"
             type="password"
             value={this.state.inputPassword}
             onChange={this.handleInputChange}
-          />
+          ></TextField>
           <br />
-          <button onClick={this.handleSubmitOnClick}>Submit</button>
+          <Button
+            className="formLine"
+            onClick={this.handleSubmitOnClick}
+            variant="contained"
+            color="primary"
+          >
+            Submit
+          </Button>
         </form>
         <div>
           <p>{this.state.errorMsg}</p>
-          {this.setState.redirect}
+          {this.state.redirect}
         </div>
       </div>
     );

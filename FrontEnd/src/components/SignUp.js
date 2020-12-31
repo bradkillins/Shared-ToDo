@@ -1,6 +1,5 @@
 import React from "react";
-import "./index.css";
-import { postFetch } from "../../fetch";
+import { postFetch } from "../fetch";
 
 class SignUp extends React.Component {
   constructor(props) {

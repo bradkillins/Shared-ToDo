@@ -1,8 +1,7 @@
 import React from "react";
-import "./index.css";
-import AddNewTodo from "../AddNewTodo";
-import Todo from "../Todo";
-import { getFetch, postFetch, deleteFetch, putFetch } from "../../fetch";
+import AddNewTodo from "./AddNewTodo";
+import Todo from "./Todo";
+import { getFetch, postFetch, deleteFetch, putFetch } from "../fetch";
 
 class List extends React.Component {
   constructor() {

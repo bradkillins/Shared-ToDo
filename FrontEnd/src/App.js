@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./index.css";
 
 //components
-import Nav from "../components/Nav";
-import Home from "../components/Home";
-import Login from "../components/Login";
-import SignUp from "../components/SignUp";
-import List from "../components/List";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import List from "./components/List";
 
 class App extends React.Component {
   constructor(props) {

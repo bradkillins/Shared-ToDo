@@ -1,7 +1,6 @@
 import React from "react";
-import Task from "../Task";
-import AddNewTask from "../AddNewTask";
-import "./index.css";
+import Task from "./Task";
+import AddNewTask from "./AddNewTask";
 
 class Todo extends React.Component {
   constructor(props) {
