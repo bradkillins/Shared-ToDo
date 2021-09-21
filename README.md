@@ -1,7 +1,6 @@
 # Shared-Todo
 
-By Bradley Killins  
-(and Andrew Miller)  
+By Bradley Killins   
 for SODV2201 - Web Programming
 
 A To-do app that allows sharing between users.  
